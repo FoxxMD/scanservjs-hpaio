@@ -118,11 +118,11 @@ FROM scanservjs-core
 # default - you will need to specifically target it.
 # ==============================================================================
 FROM scanservjs-core AS scanservjs-hplip
+COPY hplip.sh /hplip.sh
 RUN apt-get update \
   && apt-get install -yq libsane-hpaio \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  && echo hpaio >> /etc/sane.d/dll.conf
+  && rm -rf /var/lib/apt/lists/*
 
 # brscan4 image
 #
